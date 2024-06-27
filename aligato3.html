@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alan Labastida Garcia">
+    <title>Sección Alimento</title>
+    <link rel="stylesheet" href="proyecto.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#servicios" class="dropbtn">Secciones</a>
+                    <div class="dropdown-content">
+                        <a href="seccion perros.html" class="dropdown-submenu">Perros</a>
+                        <a href="seccion gatos.html" class="dropdown-submenu">Gatos</a>
+                        <a href="seccion ave.html" class="dropdown-submenu">Aves</a>
+                        <a href="seccion pez.html" class="dropdown-submenu">Peces</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#informacion" class="dropbtn">Acerca de</a>
+                    <div class="dropdown-content">
+                        <a href="quienessomos.html">¿Quiénes somos?</a>
+                        <a href="mision.html">Misión</a>
+                        <a href="vision.html">Visión</a>
+                        <a href="contacto.html">Información de contacto</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="carrito">
+            <a href="carrito.html" class="btn-carrito">
+                <img src="imagenes/carrito.png" alt="Carrito de Compras">
+            </a>
+        </div>
+    </header>
+
+    <section class="detalle-producto">
+        <div class="producto-imagen">
+            <img src="imagenes/alimentogato3.png" alt="Alimento para Gato Catoline">
+        </div>
+        <div class="producto-detalles">
+            <h1>Alimento para Gatos Catoline </h1>
+            <p class="precio">Precio: $568.00</p>
+            <p class="descripcion">Bulto de croquetas de 15 kg para gato marca Catoline, Formulado especialmente para cubrir <br>
+            las necesidades nutricionales de tu gato. </p>
+            <ul class="caracteristicas">
+                <li>Contenido: 15 kg</li>
+                <li>Ingredientes: 30% de proteina, vitaminas, minerales, aminoacidos, y otros nutrientes adicionados con Omega 3.</li>
+                <li>Beneficios: Mejora la digestión, fortalece el sistema inmunológico, promueve un pelaje brillante</li>
+                <li>Edad recomendada: Gatito </li>
+            </ul>
+            <div class="cantidad">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" value="1">
+            </div>
+            <button class="btn-agregar-carrito">Agregar al Carrito</button>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <div class="contacto">
+            <p>Correo: </p>
+            <p>Dirección: </p>
+            <p>Teléfono: </p>
+        </div>
+    </footer>
+    <script src="producto.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Galilea García Hernández">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="proyecto.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#servicios" class="dropbtn">Secciones</a>
+                    <div class="dropdown-content">
+                        <a href="seccion perros.html" class="dropdown-submenu">Perros</a>
+                        <a href="seccion gatos.html" class="dropdown-submenu">Gatos</a>
+                        <a href="seccion ave.html" class="dropdown-submenu">Aves</a>
+                        <a href="seccion pez.html" class="dropdown-submenu">Peces</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#informacion" class="dropbtn">Acerca de</a>
+                    <div class="dropdown-content">
+                        <a href="quienessomos.html">¿Quiénes somos?</a>
+                        <a href="mision.html">Misión</a>
+                        <a href="vision.html">Visión</a>
+                        <a href="contacto.html">Información de contacto</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="carrito">
+            <a href="carrito.html" class="btn-carrito">
+                <img src="imagenes/carrito.png" alt="Bolsa de Compras">
+                <div class="notificacion" id="notificacion-carrito">0</div>
+            </a>
+        </div>
+    </header>
+
+    <section class="carrito-detalle">
+        <h1>Carrito de Compras</h1>
+        <div class="carrito-items" id="carrito-items"></div>
+        <div class="total">
+            <h2>Total: $<span id="total">0</span></h2>
+        </div>
+        <button class="btn-vaciar-carrito" onclick="vaciarCarrito()">Vaciar Carrito</button>
+        <button class="btn-comprar" onclick="mostrarFormulario()">Comprar</button>
+    </section>
+
+    <section class="formulario-compra" id="formulario-compra" style="display:none;">
+        <h2>Formulario de Compra</h2>
+        <form id="form-compra">
+            <div>
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div>
+                <label for="direccion">Dirección de Envío:</label>
+                <input type="text" id="direccion" name="direccion" required>
+            </div>
+            <div>
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div>
+                <label for="metodo-pago">Método de Pago:</label>
+                <select id="metodo-pago" name="metodo-pago" required>
+                    <option value="">Seleccione un método de pago</option>
+                    <option value="credito">Tarjeta de Crédito</option>
+                    <option value="debito">Tarjeta de Débito</option>
+                </select>
+            </div>
+            <div id="datos-tarjeta" style="display:none;">
+                <div>
+                    <label for="numero-tarjeta">Número de la Tarjeta: *16 dígitos*</label>
+                    <input type="text" id="numero-tarjeta" name="numero-tarjeta" pattern="\d{16}" required>
+                </div>
+                <div>
+                    <label for="fecha-vencimiento">Fecha de Vencimiento: *MM/AA*</label>
+                    <input type="text" id="fecha-vencimiento" name="fecha-vencimiento" placeholder="MM/AA" pattern="\d{2}/\d{2}" required>
+                </div>
+                <div>
+                    <label for="codigo-seguridad">Código de Seguridad: *3 dígitos*</label>
+                    <input type="text" id="codigo-seguridad" name="codigo-seguridad" pattern="\d{3}" required>
+                </div>
+            </div>
+            <button type="submit">Confirmar Compra</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <div class="contacto">
+            <p>Correo: petparaiso@gmail.com</p>
+            <p>Dirección: Porfirio Bonilla s/n, Francisco Sarabia,90207 Heroica Cdad. de Calpulalpan Tlax.</p>
+            <p>Teléfono: 7491114104</p>
+            <p>Instagram: Pet_Paraiso</p>
+            <p>Facebook: Pet Paraiso Oficial</p>
+        </div>
+    </footer>
+
+    <script>
+        function cargarCarrito() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const carritoItemsContainer = document.getElementById('carrito-items');
+            const totalElement = document.getElementById('total');
+            const notificacionCarrito = document.getElementById('notificacion-carrito');
+            let total = 0;
+            let cantidadTotal = 0;
+
+            carritoItemsContainer.innerHTML = '';
+
+            carrito.forEach(producto => {
+                const item = document.createElement('div');
+                item.className = 'carrito-item';
+
+                item.innerHTML = `
+                    <img src="${producto.imagen}" alt="${producto.nombre}">
+                    <div>
+                        <h3>${producto.nombre}</h3>
+                        <p>Precio: $${producto.precio}</p>
+                        <p>Cantidad: ${producto.cantidad}</p>
+                        <p>Subtotal: $${(producto.precio * producto.cantidad).toFixed(2)}</p>
+                        <button onclick="eliminarProducto(${producto.id})">Eliminar</button>
+                    </div>
+                `;
+
+                carritoItemsContainer.appendChild(item);
+
+                total += producto.precio * producto.cantidad;
+                cantidadTotal += producto.cantidad;
+            });
+
+            totalElement.innerText = total.toFixed(2);
+            notificacionCarrito.innerText = cantidadTotal;
+        }
+
+        function vaciarCarrito() {
+            localStorage.removeItem('carrito');
+            cargarCarrito();
+        }
+
+        function eliminarProducto(id) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito = carrito.filter(producto => producto.id !== id);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            cargarCarrito();
+        }
+
+        function mostrarFormulario() {
+            document.getElementById('formulario-compra').style.display = 'block';
+        }
+
+        document.getElementById('metodo-pago').addEventListener('change', function() {
+            const datosTarjeta = document.getElementById('datos-tarjeta');
+            if (this.value) {
+                datosTarjeta.style.display = 'block';
+            } else {
+                datosTarjeta.style.display = 'none';
+            }
+        });
+
+        document.getElementById('form-compra').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Compra realizada con éxito');
+            localStorage.removeItem('carrito');
+            location.reload();
+        });
+
+        window.onload = cargarCarrito;
+    </script>
+</body>
+</html>

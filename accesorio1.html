@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="Erick Yurem Marin Cova">
+    <title>Sección Accesorio Pez</title>
+    <link rel="stylesheet" href="proyecto.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#servicios" class="dropbtn">Secciones</a>
+                    <div class="dropdown-content">
+                        <a href="seccion perros.html" class="dropdown-submenu">Perros</a>
+                        <a href="seccion gatos.html" class="dropdown-submenu">Gatos</a>
+                        <a href="seccion ave.html" class="dropdown-submenu">Aves</a>
+                        <a href="seccion pez.html" class="dropdown-submenu">Peces</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#informacion" class="dropbtn">Acerca de</a>
+                    <div class="dropdown-content">
+                        <a href="quienessomos.html">¿Quiénes somos?</a>
+                        <a href="mision.html">Misión</a>
+                        <a href="vision.html">Visión</a>
+                        <a href="contacto.html">Información de contacto</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="carrito">
+            <a href="carrito.html" class="btn-carrito">
+                <img src="Imagenes/carrito.png" alt="Carrito de Compras">
+                <div class="notificacion" id="notificacion-carrito">0</div>
+            </a>
+        </div>
+    </header>
+
+    <section class="detalle-producto">
+        <div class="producto-imagen">
+            <img src="imagenes/accesoriospez1.png" alt="Piedra Decorativa de Cerámica">
+        </div>
+        <div class="producto-detalles">
+            <h1>Piedra Decorativa de Cerámica</h1>
+            <p class="precio">Precio: $49.00</p>
+            <p class="descripcion">Transforma tu pecera en un hermoso hábitat con esta piedra decorativa de cerámica. Con un diseño elegante y medidas de 15 x 30 cm, es perfecta para añadir un toque estético a cualquier acuario.</p>
+            <ul class="caracteristicas">
+                <li>Material: Cerámica de alta calidad</li>
+                <li>Color: Gris</li>
+                <li>Dimensiones: 15 cm x 30 cm</li>
+                <li>Durabilidad: Resistente a mordeduras y desgaste</li>
+                <li>Ideal para: Peceras y acuarios de todos los tamaños</li>
+                <li>Beneficios: Proporciona un entorno natural y seguro para tus peces, sin afectar la calidad del agua</li>
+            </ul>
+            <div class="cantidad">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" value="1">
+            </div>
+            <button class="btn-agregar-carrito" onclick="agregarAlCarrito()">Agregar al Carrito</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <div class="contacto">
+            <p>Correo: petparaiso@gmail.com</p>
+            <p>Dirección: Porfirio Bonilla s/n, Francisco Sarabia,90207 Heroica Cdad. de Calpulalpan Tlax.</p>
+            <p>Teléfono: 7491114104</p>
+            <p>Instagram: Pet_Paraiso</p>
+            <p>Facebook:Pet Paraiso Oficial</p>
+        </div>
+    </footer>
+
+    <script>
+        function agregarAlCarrito() {
+            const producto = {
+                id: 1, // ID único del producto
+                nombre: "Piedra Decorativa de Cerámica",
+                precio: 49.00,
+                cantidad: parseInt(document.getElementById('cantidad').value),
+                imagen: "imagenes/accesoriospez1.png"
+            };
+
+            let carrito = localStorage.getItem('carrito');
+            if (carrito) {
+                carrito = JSON.parse(carrito);
+            } else {
+                carrito = [];
+            }
+
+            const productoExistente = carrito.find(item => item.id === producto.id);
+            if (productoExistente) {
+                productoExistente.cantidad += producto.cantidad;
+            } else {
+                carrito.push(producto);
+            }
+
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            const notificacionCarrito = document.getElementById('notificacion-carrito');
+            let cantidadTotal = 0;
+            carrito.forEach(item => cantidadTotal += item.cantidad);
+            notificacionCarrito.innerText = cantidadTotal;
+            alert('Producto agregado al carrito');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="Alejandro Ruiz Campos">
+    <title>Sección Casa ave</title>
+    <link rel="stylesheet" href="proyecto.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#servicios" class="dropbtn">Secciones</a>
+                    <div class="dropdown-content">
+                        <a href="seccion perros.html" class="dropdown-submenu">Perros</a>
+                        <a href="seccion gatos.html" class="dropdown-submenu">Gatos</a>
+                        <a href="seccion ave.html" class="dropdown-submenu">Aves</a>
+                        <a href="seccion pez.html" class="dropdown-submenu">Peces</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#informacion" class="dropbtn">Acerca de</a>
+                    <div class="dropdown-content">
+                        <a href="quienessomos.html">¿Quiénes somos?</a>
+                        <a href="mision.html">Misión</a>
+                        <a href="vision.html">Visión</a>
+                        <a href="contacto.html">Información de contacto</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="carrito">
+            <a href="carrito.html">
+                <img src="imagenes/carrito.png" alt="Carrito de Compras">
+                <div class="notificacion" id="notificacion-carrito">0</div>
+            </a>
+        </div>
+    </header>
+    <div class="barra-busqueda">
+        <input type="text" placeholder="Buscar..." name="buscar">
+        <button type="submit">Buscar</button>
+    </div>
+    <!-- Sección de Accesorios para Perro -->
+    <section class="productos">
+        <div class="producto">
+            <h2><a href="casaave1.html">Casa de pajaros colgante de madera mediana</a></h2>
+            <img src="imagenes/casapajaro1.png" alt="Casa 1">
+            <p>Precio: $199.00</p>
+        </div>
+        <div class="producto">
+            <h2><a href="casaave2.html">Casa de pajaros de madera chica</a></h2>
+            <img src="imagenes/casapajaro2.png" alt="Casa 2">
+            <p>Precio: $99.00</p>
+        </div>
+        <div class="producto">
+            <h2><a href="casaave3.html">Jaula para pajaros chica</a></h2>
+            <img src="imagenes/casapajaro3.png" alt="Casa 3">
+            <p>Precio: $170.00</p>
+        </div>
+        <div class="producto">
+            <h2><a href="casaave4.html">Jaula para pajaros grande</a></h2>
+            <img src="imagenes/casapajaro4.png" alt="Casa 4">
+            <p>Precio: $359.00</p>
+        </div>
+        <div class="producto">
+            <h2><a href="casaave5.html">Jaula para loros grande</a></h2>
+            <img src="imagenes/casapajaro5.png" alt="Casa 5">
+            <p>Precio: $579.00</p>
+        </div>
+    </section>
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <div class="contacto">
+            <p>Correo: petparaiso@gmail.com</p>
+            <p>Dirección: Porfirio Bonilla s/n, Francisco Sarabia, 90207 Heroica Cdad. de Calpulalpan Tlax.</p>
+            <p>Teléfono: 7491114104</p>
+            <p>Instagram: Pet_Paraiso</p>
+            <p>Facebook: Pet Paraiso Oficial</p>
+        </div>
+    </footer>
+    <script src="buscador.js"></script>
+    <script>
+        window.onload = function() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const notificacionCarrito = document.getElementById('notificacion-carrito');
+            let cantidadTotal = 0;
+            carrito.forEach(item => cantidadTotal += item.cantidad);
+            notificacionCarrito.innerText = cantidadTotal;
+        }
+    </script>
+</body>
+</html>
+

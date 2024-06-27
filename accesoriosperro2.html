@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="autor" content="Galilea Garcia Hernandez">
+    <title>Sección Accesorios Perro</title>
+    <link rel="stylesheet" href="proyecto.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#servicios" class="dropbtn">Secciones</a>
+                    <div class="dropdown-content">
+                        <a href="seccion perros.html" class="dropdown-submenu">Perros</a>
+                        <a href="seccion gatos.html" class="dropdown-submenu">Gatos</a>
+                        <a href="seccion ave.html" class="dropdown-submenu">Aves</a>
+                        <a href="seccion pez.html" class="dropdown-submenu">Peces</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#informacion" class="dropbtn">Acerca de</a>
+                    <div class="dropdown-content">
+                        <a href="quienessomos.html">¿Quiénes somos?</a>
+                        <a href="mision.html">Misión</a>
+                        <a href="vision.html">Visión</a>
+                        <a href="contacto.html">Información de contacto</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="carrito">
+            <a href="carrito.html" class="btn-carrito">
+                <img src="imagenes/carrito.png" alt="Bolsa de Compras">
+                <div class="notificacion" id="notificacion-carrito">0</div>
+            </a>
+        </div>
+    </header>
+
+    <section class="detalle-producto">
+        <div class="producto-imagen">
+            <img src="imagenes/accesorios perros 3.png" alt="Accesorio 2">
+        </div>
+        <div class="producto-detalles">
+            <h1>Correa de Resistente Para Perros de 40 cm</h1>
+            <p class="precio">Precio: $59.00</p>
+            <p class="descripcion">La correa de 40 cm roja es ideal para pasear a tu perro de forma segura y cómoda. Fabricada con materiales de alta calidad, esta correa es duradera y resistente, proporcionando control y comodidad durante los paseos diarios.</p>
+            <ul class="caracteristicas">
+                <li>Longitud: 40 cm</li>
+                <li>Color: Rojo</li>
+                <li>Material: Nylon de alta resistencia</li>
+                <li>Uso: Ideal para perros de todas las razas y tamaños</li>
+            </ul>
+            <div class="cantidad">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" value="1">
+            </div>
+            <button class="btn-agregar-carrito" onclick="agregarAlCarrito()">Agregar al Carrito</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <div class="contacto">
+            <p>Correo: petparaiso@gmail.com</p>
+            <p>Dirección: Porfirio Bonilla s/n, Francisco Sarabia, 90207 Heroica Cdad. de Calpulalpan Tlax.</p>
+            <p>Teléfono: 7491114104</p>
+            <p>Instagram: Pet_Paraiso</p>
+            <p>Facebook: Pet Paraiso Oficial</p>
+        </div>
+    </footer>
+    <script>
+        function agregarAlCarrito() {
+            const producto = {
+                id: 5, // ID único del producto
+                nombre: "Correa de Resistente Para Perros de 40 cm",
+                precio: 59.00,
+                cantidad: parseInt(document.getElementById('cantidad').value),
+                imagen: "imagenes/accesorios perros 3.png"
+            };
+
+            let carrito = localStorage.getItem('carrito');
+            if (carrito) {
+                carrito = JSON.parse(carrito);
+            } else {
+                carrito = [];
+            }
+
+            const productoExistente = carrito.find(item => item.id === producto.id);
+            if (productoExistente) {
+                productoExistente.cantidad += producto.cantidad;
+            } else {
+                carrito.push(producto);
+            }
+
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            const notificacionCarrito = document.getElementById('notificacion-carrito');
+            let cantidadTotal = 0;
+            carrito.forEach(item => cantidadTotal += item.cantidad);
+            notificacionCarrito.innerText = cantidadTotal;
+            alert('Producto agregado al carrito');
+        }
+    </script>
+</body>
+</html>

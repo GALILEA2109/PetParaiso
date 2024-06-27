@@ -1,0 +1,683 @@
+/*Encabezado y seccion de arriba*/ 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #87dde1ff;
+    padding: 10px 20px;
+    color: black;
+}
+
+.logo img {
+    height: 70px;
+}
+
+.nav {
+    flex-grow: 1;
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav li {
+    margin: 0 20px;
+    position: relative;
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.nav a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.dropdown-content,
+.dropdown-content-sub {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a,
+.dropdown-content-sub a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover,
+.dropdown-content-sub a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-submenu:hover .dropdown-content-sub {
+    display: block;
+    left: 100%;
+    top: 0; 
+}
+
+.carrito img {
+    height: 65px;
+}
+/*Barra de busqueda*/
+.barra-busqueda {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f4f4f4; /* Color de la barra de búsqueda */
+}
+
+.barra-busqueda input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.barra-busqueda button {
+    padding: 8px 16px; /* Ajuste del tamaño del botón */
+    border: none;
+    border-radius: 4px;
+    background-color: #87dde1ff; /* Color de fondo original */
+    color: white;
+    cursor: pointer;
+}
+
+.barra-busqueda button:hover {
+    background-color: #555;
+}
+/*Pagina principal contenido*/
+.seccion {
+    padding: 20px;
+    margin: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.imagenes-seccion {
+    display: flex;
+    flex-wrap: wrap; /* Cambio para disposición en pares horizontales */
+    justify-content: space-between;
+}
+
+.imagen-contenedor {
+    text-align: center;
+    margin-bottom: 20px;
+    width: calc(50% - 10px); /* Ajuste del ancho al 50% menos el margen */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrado vertical */
+    transition: transform 0.3s ease-in-out; /* Transición para el efecto de zoom */
+}
+
+.imagen-contenedor img {
+    width: 100%; /* Ajuste de tamaño para imágenes verticales */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out; /* Transición para el efecto de zoom */
+}
+
+.imagen-contenedor:hover img {
+    transform: scale(1.1); /* Efecto de zoom */
+}
+
+.boton-perro,
+.boton-gato,
+.boton-aves,
+.boton-peces {
+    width: auto; /* Ajuste del ancho */
+    padding: 10px 20px; /* Ajuste del tamaño del botón */
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFEB3B; /* Color de fondo amarillo */
+    color: black; /* Color del texto */
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.imagenes-botones-seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.imagen-contenedor {
+    text-align: center;
+    margin-bottom: 20px;
+    max-width: 100%; /* Ancho máximo */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrado vertical */
+    transition: transform 0.3s ease-in-out; /* Transición para el efecto de zoom */
+}
+
+.imagen-contenedor img {
+    width: 250px; /* Tamaño de las imágenes */
+    height: 250px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease-in-out; /* Transición para el efecto de zoom */
+}
+
+.imagen-contenedor:hover img {
+    transform: scale(1.1); /* Efecto de zoom */
+}
+
+.botones-seccion {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+/*Seccion*/
+.botones-seccion .boton-perro {
+    width: auto; /* Ajuste del ancho */
+    padding: 10px 20px; /* Ajuste del tamaño del botón */
+    margin: 0 10px; /* Espaciado entre los botones */
+    border: none;
+    border-radius: 5px;
+    background-color: #FFEB3B; /* Color de fondo amarillo */
+    color: black; /* Color del texto */
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botones-seccion .boton-perro:hover {
+    background-color: #8d8b8b;
+    color: black; /* Color del texto al pasar el ratón */
+}
+/*Pie de Pagina*/
+.footer {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #87dde1ff;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer .contacto p {
+    margin: 5px 0;
+}
+/* Estilo para productos */
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.producto {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    flex-basis: calc(20% - 40px); /* Ajuste del ancho de los productos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-10px);
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+
+.productos a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.productos a:hover {
+    text-decoration: underline;
+}
+/* Estilos para la página de detalles del producto */
+.detalle-producto {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.producto-imagen {
+    flex: 1 1 40%;
+    text-align: center;
+}
+
+.producto-imagen img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+.producto-detalles {
+    flex: 1 1 60%;
+    padding: 20px;
+}
+
+.producto-detalles h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.producto-detalles .precio {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.producto-detalles .descripcion {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+.producto-detalles .caracteristicas {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.producto-detalles .caracteristicas li {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #555;
+}
+.producto-detalles .cantidad {
+    margin-bottom: 20px;
+}
+
+.producto-detalles .cantidad label {
+    font-size: 1em;
+    margin-right: 10px;
+}
+
+.producto-detalles .cantidad input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.producto-detalles .btn-agregar-carrito {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #87dde1;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.producto-detalles .btn-agregar-carrito:hover {
+    background-color: #555;
+}
+
+/* Estilos para la sección ¿Quiénes somos? */
+.quienes-somos {
+    padding: 20px;
+    margin: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.quienes-somos h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333; /* Color del texto */
+}
+
+.quienes-somos p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #555; /* Color del texto */
+}
+
+/* Estilos para el video comercial */
+.video-comercial {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-comercial h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333; /* Color del texto */
+}
+
+.video-comercial iframe {
+    width: 100%; /* Ajustar el ancho del video */
+    height: 400px; /* Altura del video */
+    border-radius: 8px;
+}
+/* Estilos para la sección Misión */
+.mision {
+    padding: 20px;
+    margin: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mision h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333; /* Color del texto */
+}
+
+.mision p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #555; /* Color del texto */
+}
+/* Estilos para la sección Visión */
+.vision {
+    padding: 20px;
+    margin: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.vision h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333; /* Color del texto */
+}
+
+.vision p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #555; /* Color del texto */
+}
+/* Estilos para la sección de Contacto */
+.contacto {
+    padding: 20px;
+    margin: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contacto h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333; /* Color del texto */
+}
+
+.contacto p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #555; /* Color del texto */
+    line-height: 1.6; /* Espaciado entre líneas */
+}
+
+.contacto ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contacto ul li {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #555; /* Color del texto */
+}
+/* Estilo de la barra de búsqueda */
+.barra-busqueda {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+}
+
+.barra-busqueda input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.barra-busqueda button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #87dde1;
+    color: white;
+    cursor: pointer;
+}
+
+.barra-busqueda button:hover {
+    background-color: #555;
+}
+/* Carrito de compras */
+.carrito-de-compras {
+    padding: 20px;
+    margin: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carrito-de-compras h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.carrito-de-compras table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.carrito-de-compras table th,
+.carrito-de-compras table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.carrito-de-compras table th {
+    background-color: #f4f4f4;
+}
+
+.carrito-de-compras table td img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.carrito-de-compras table .btn-eliminar {
+    background-color: #87dde1ff;
+    color: black;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carrito-de-compras table .btn-eliminar:hover {
+    background-color: #555;
+    color: white;
+}
+
+.carrito-de-compras .total {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.carrito-de-compras .boton-comprar {
+    background-color: #87dde1ff;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.carrito-de-compras .boton-comprar:hover {
+    background-color: #555;
+    color: white;
+}
+/* Estilo del botón de comprar en el carrito */
+.btn-comprar {
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 12px 24px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño del texto */
+    cursor: pointer; /* Indicador de clic */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+    border-radius: 5px; /* Esquinas redondeadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.btn-comprar:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el mouse */
+}
+
+.btn-comprar:active {
+    background-color: #003d80; /* Color de fondo al hacer clic */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset; /* Sombra interna al hacer clic */
+}
+/* Formulario de Compra */
+.formulario-compra {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.formulario-compra h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.formulario-compra form div {
+    margin-bottom: 10px;
+}
+
+.formulario-compra label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.formulario-compra input[type="text"],
+.formulario-compra input[type="email"],
+.formulario-compra input[type="tel"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+.formulario-compra button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.formulario-compra button:hover {
+    background-color: #218838;
+}
+.carrito {
+    position: relative;
+}
+.carrito .btn-carrito img {
+    width: 60px; 
+}
+.carrito .notificacion {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+}
+/* Botones de eliminar y vaciar carrito */
+.carrito-item button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.carrito-item button:hover {
+    background-color: #ff1a1a;
+}
+
+.btn-vaciar-carrito {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 20px 0; /* Ajusta el margen superior e inferior */
+    display: block;
+    max-width: 200px; /* Limita el ancho del botón */
+    text-align: center;
+    align-self: flex-start; /* Alinea el botón hacia la izquierda */
+}
+
+
+.btn-vaciar-carrito:hover {
+    background-color: #ff1a1a;
+}
